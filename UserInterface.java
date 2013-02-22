@@ -130,10 +130,9 @@ public class UserInterface {
 
   public void addManufacturer() {
     String name = getToken("Enter manufacturer name");
-	String address = getToken("Enter address");
     String manufacturerID = getToken("Enter id");
     Manufacturer result;
-    result = warehouse.addManufacturer(name, address, manufacturerID);
+    result = warehouse.addManufacturer(name, manufacturerID);
     if (result == null) {
       System.out.println("Could not add manufacturer");
     }
@@ -156,7 +155,7 @@ public class UserInterface {
     do {
       String name = getToken("Enter product name");
       String productID = getToken("Enter id");
-      result = warehouse.addProduct(name, productID);
+      result = warehouse.addProduct(productID, name);
       if (result != null) {
         System.out.println(result);
       } else {

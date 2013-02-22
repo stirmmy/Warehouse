@@ -4,19 +4,14 @@ import java.io.*;
 public class Manufacturer implements Serializable {
   private static final long serialVersionUID = 1L;
   private String name;
-  private String address;
   private String id;
 
 
-  public Manufacturer(String name, String address, String id) {
+  public Manufacturer(String name, String id) {
     this.name = name;
-    this.address = address;
     this.id = id;
   }
 
-  public String getAddress() {
-    return address;
-  }
   public String getName() {
     return name;
   }
@@ -25,6 +20,6 @@ public class Manufacturer implements Serializable {
   }
 
   public String toString() {
-      return "name " + name + " address " + address + " id " + id;
+      return "name " + name + " id " + id;
   }
 }

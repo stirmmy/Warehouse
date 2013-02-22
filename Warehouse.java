@@ -19,8 +19,8 @@ public class Warehouse implements Serializable {
       return warehouse;
     }
   }
-  public Manufacturer addManufacturer(String name, String address, String id) {
-    Manufacturer manufacturer = new Manufacturer(name, address, id);
+  public Manufacturer addManufacturer(String name, String id) {
+    Manufacturer manufacturer = new Manufacturer(name, id);
     if (manufacturerList.insertManufacturer(manufacturer)) {
       return (manufacturer);
     }
@@ -33,8 +33,10 @@ public class Warehouse implements Serializable {
     }
     return null;
   }
-  public Product addProduct(String name, String id) {
-    Product product = new Product(name, id);
+  
+  //modified to take in product id and manufacturer id
+  public Product addProduct(String ID, String name) {
+    Product product = new Product(ID, name);
     if (productList.insertProduct(product)) {
       return (product);
     }
