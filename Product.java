@@ -8,12 +8,26 @@ public class Product implements Serializable {
   private String name;
   private double price;
   private int qty;
+  private Map supplierList = new HashMap();
 
   public Product(String ID, String name) {
     this.ID = ID;
 	price = -1;
 	qty = 0;
 	this.name = name;
+  }
+  
+  public boolean addSupplier(String ManufacturerID, double price){
+	  supplierList.put(ManufacturerID, price);
+	  return true;
+  }
+
+  public boolean deleteSupplier(String ManufacturerID){
+	  Object V;
+	  V = supplierList.remove(ManufacturerID);
+	  if(V == null)
+		  return false;
+	  return true;
   }
 
   public void setPrice(double price) {

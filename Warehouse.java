@@ -42,6 +42,22 @@ public class Warehouse implements Serializable {
     }
     return null;
   }
+  
+  boolean addSupplier(String productID, String ManufacturerID, double price){
+	  Manufacturer manu = manufacturerList.searchManufacturer(ManufacturerID);
+	  if(manu == null)
+		  return false;
+	  Product product = productList.searchProduct(productID);
+	  if(product == null)
+		  return false;
+	  boolean bool = product.addSupplier(ManufacturerID, price);
+	  return bool;
+  }
+  
+  boolean deleteSupplier(String productID, String ManufacturerID){
+	  Product product = productList.searchProduct(productID);
+	  return product.deleteSupplier(ManufacturerID);
+  }
 
   public Iterator getManufacturers() {
       return manufacturerList.getManufacturers();

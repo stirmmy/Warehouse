@@ -194,11 +194,27 @@ public class UserInterface {
   /* Non-implemented user-interface operations */ 
 
   public void addManufacturerToProduct() {
-         System.out.println("Dummy Action");
+	  Scanner scnr = new java.util.Scanner( System.in );
+	  String procuctID = getToken("Enter product ID");
+	  System.out.println("Enter product price");
+	  double price = scnr.nextDouble();
+	  String manufacturerID = getToken("Enter Manufacturer ID");
+	  boolean bool = warehouse.addSupplier(procuctID, manufacturerID, price);
+	  if(bool)
+		  System.out.println("Sucesfully add manufacturer to product.");
+	  else
+		  System.out.println("Add manufacturer to product not Succesful.");
   }
   public void deleteManufacturerFromProduct() {
-      System.out.println("Dummy Action");
+	  String procuctID = getToken("Enter product ID");
+	  String manufacturerID = getToken("Enter Manufacturer ID");
+	  boolean bool = warehouse.deleteSupplier(procuctID, manufacturerID);
+	  if(bool)
+		  System.out.println("Sucesfully add manufacturer to product.");
+	  else
+		  System.out.println("Add manufacturer to product not Succesful.");
   }
+  
   public void acceptOrder() {
       System.out.println("Dummy Action");   
   }

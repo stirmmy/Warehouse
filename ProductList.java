@@ -26,6 +26,16 @@ public class ProductList implements Serializable {
     return products.iterator();
   }
   
+  public Product searchProduct(String ProductID){
+    for (Iterator iterator = products.iterator(); iterator.hasNext(); ) {
+      Product product = (Product) iterator.next();
+      if (product.getProductID().equals(ProductID)) {
+        return product;
+      }
+    }
+    return null;
+  }
+  
   private void writeObject(java.io.ObjectOutputStream output) {
     try {
       output.defaultWriteObject();

@@ -22,6 +22,16 @@ public class ManufacturerList implements Serializable {
   public Iterator getManufacturers() {
     return manufacturers.iterator();
   }
+  public Manufacturer searchManufacturer(String ManufacturerID){
+    for (Iterator iterator = manufacturers.iterator(); iterator.hasNext(); ) {
+      Manufacturer manufacturer = (Manufacturer) iterator.next();
+      if (manufacturer.getId().equals(ManufacturerID)) {
+        return manufacturer;
+      }
+    }
+    return null;
+  }
+
   private void writeObject(java.io.ObjectOutputStream output) {
     try {
       output.defaultWriteObject();
